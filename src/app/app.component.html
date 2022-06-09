@@ -1,9 +1,19 @@
-<h1>{{title}}</h1>
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-  Tenetur incidunt eius est ex laudantium repellendus iste? 
-  Impedit corrupti, quibusdam cum perferendis necessitatibus saepe
-   in nulla iste voluptas non nobis blanditiis repellendus est et nisi sequi quis nemo ex nesciunt nam aspernatur. 
-   Expedita porro, autem voluptatibus pariatur voluptatum perferendis vero ipsa.
-</p>
-<router-outlet></router-outlet>
+<div class="bg-body">
+
+<nav class="navbar navbar-light bg-secondary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <div class="flex">
+        <img src="favicon.ico" alt="" width="34" height="34" class="d-inline-block align-text-top">
+        <span class="ms-3 text-white fs-3">{{title}}</span>
+      </div>      
+    </a>
+  </div>
+</nav>
+<div class="container bg-light">
+  <div class="m-3 p-3">
+    <app-todos></app-todos>
+  </div>
+</div>
+  
+</div>
