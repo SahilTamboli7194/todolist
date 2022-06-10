@@ -7,9 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ToDo List';
+  user = 'Sahil';
 constructor(){
-  setTimeout(() => {
-    this.title = "hello sahil"
-  }, 5000);
+  
 }
 }

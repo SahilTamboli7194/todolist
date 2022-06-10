@@ -7,38 +7,49 @@ import { Todo } from 'src/app/Todos';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
+  localItem: any;
+  todos: Todo[] = [];
 
-  todos: Todo[];
   constructor() {
-    this.todos = [
-      {
-        sno: 1,
-        title: "this is first title",
-        description: "this is my first task",
-        active: true
-      },
-      {
-        sno: 2,
-        title: "this is second title",
-        description: "this is my second task",
-        active: true
-      },
-      {
-        sno: 3,
-        title: "this is third title",
-        description: "this is my third task",
-        active: true
-      },
-      {
-        sno: 4,
-        title: "this is fourth title",
-        description: "this is my fourth task",
-        active: false
-      }
-    ]
+    // this.localItem = 'this is local item';
+    const items = localStorage.getItem('todos');
+
+    if (items) {
+
+      this.todos = JSON.parse(items);
+
+    } else {
+
+
+
+    }
+
+
+    // this.todos = [];
+
   }
 
   ngOnInit(): void {
   }
 
+  deleteTodo(todo: Todo) {
+    //console.log(todo);
+    const index = this.todos.indexOf(todo);
+    this.todos.splice(index, 1);
+
+
+    console.log('todo has been delated ');
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+    console.log('item has ben set');
+    console.log(this.localItem);
+  }
+
+  addTodo(todo: Todo) {
+
+    this.todos.push(todo);
+    console.log('todo has been added ');
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+    console.log('item has ben set');
+    console.log(this.localItem);
+  }
 }
