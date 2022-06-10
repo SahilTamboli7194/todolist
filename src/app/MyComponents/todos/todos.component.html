@@ -17,9 +17,9 @@
         <ng-template #elseBlock>
             <div class="overflow-auto mt-3 p-3 shadow" style="max-height: 500px;">
                 <div *ngFor="let todo of todos">
-                    <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)"></app-todo-item>
+                    <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)" (todoCheckbox)="toggleTodo($event)"></app-todo-item>
                 </div>
-            </div>            
+            </div>
         </ng-template>
     </div>
 
