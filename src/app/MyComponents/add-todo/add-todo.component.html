@@ -1,0 +1,21 @@
+<div class="p-2 mt-3">
+    <form (ngSubmit)="onSubmit()">
+        <div class="mb-3 row">
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext rounded"  id="title" placeholder=" Todo Title"
+                    [(ngModel)]="title" name="title" >
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext rounded" id="description"
+                    placeholder=" Todo Description" [(ngModel)]="description" name="description">
+            </div>
+        </div>
+        <div class="text-end pe-5">
+            <button type="submit" class="btn btn-sm btn-success me-4 shadow rounded">
+                Add Todo
+            </button>
+        </div>
+    </form>
+</div>

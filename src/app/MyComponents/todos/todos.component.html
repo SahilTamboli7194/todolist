@@ -1,0 +1,26 @@
+<div class="pt-1">
+    <h2 class="mt-0 pt-0 text-center fs-1 m-2 p-2 pb-3 border-bottom border-2 border-info">
+        This My Todo list
+    </h2>
+    <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+    <hr style="size: 3; color: black;">
+
+    <div class="mt-3">
+        <h3 class="mb-3 mt-2"> Your Todo's</h3>
+        <div *ngIf="this.todos.length===0; else elseBlock">
+            <div class="mt-5 mb-4 m-2 p-3 text-center">
+                <span class="text-danger fs-1 shadow p-4 rounded mt-4">
+                    No ToDo to show
+                </span>
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <div class="overflow-auto mt-3 p-3 shadow" style="max-height: 500px;">
+                <div *ngFor="let todo of todos">
+                    <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)"></app-todo-item>
+                </div>
+            </div>            
+        </ng-template>
+    </div>
+
+</div>
