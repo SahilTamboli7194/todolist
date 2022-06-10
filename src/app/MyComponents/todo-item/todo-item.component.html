@@ -1,11 +1,33 @@
 <div class="my-2 mt-2">
-    <div class="p-2">
-        <h4>
+    <div class="p-2 border-bottom border-primary">
+        <h4 [ngClass]="{'strike': !todo.active}">
             {{todo.title}}
         </h4>
-        <p class="ms-3">
+        <p class="ms-3" [ngClass]="{'strike': !todo.active}">
             {{todo.description}}
         </p>
-        <button class="btn btn-danger btn-sm ms-4" (click)="onClick(todo)">Delete</button>
+        <div class="d-flex flex-row justify-content-evenly bd-highlight border-top border-light pt-2">
+            <div class="bd-highlight">
+                <div class="form-check form-switch">
+                    <input class="form-check-input shadow" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                        (click)="onCheckboxClick(todo)">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">
+                        <div *ngIf="this.todo.active === true; else elseBlock">
+                            <span class="text-success">
+                                Mark as done
+                            </span>
+                        </div>
+                        <ng-template #elseBlock>
+                            <span class="text-danger">
+                                Mark as not Done
+                            </span>
+                        </ng-template>
+                    </label>
+                </div>
+            </div>
+            <div class="bd-highlight">
+                <button class="btn btn-danger btn-sm ms-4" (click)="onClick(todo)">Delete</button>
+            </div>
+        </div>
     </div>
 </div>

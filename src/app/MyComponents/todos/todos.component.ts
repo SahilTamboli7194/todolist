@@ -12,20 +12,13 @@ export class TodosComponent implements OnInit {
 
   constructor() {
     // this.localItem = 'this is local item';
-    const items = localStorage.getItem('todos');
+    this.localItem = localStorage.getItem('todos');
 
-    if (items) {
+    if (this.localItem) {
 
-      this.todos = JSON.parse(items);
+      this.todos = JSON.parse(this.localItem);
 
-    } else {
-
-
-
-    }
-
-
-    // this.todos = [];
+    } 
 
   }
 
@@ -41,7 +34,7 @@ export class TodosComponent implements OnInit {
     console.log('todo has been delated ');
     localStorage.setItem('todos', JSON.stringify(this.todos));
     console.log('item has ben set');
-    console.log(this.localItem);
+    
   }
 
   addTodo(todo: Todo) {
@@ -50,6 +43,15 @@ export class TodosComponent implements OnInit {
     console.log('todo has been added ');
     localStorage.setItem('todos', JSON.stringify(this.todos));
     console.log('item has ben set');
-    console.log(this.localItem);
+    
+  }
+
+  toggleTodo(todo: Todo) {
+
+    const index = this.todos.indexOf(todo);
+    this.todos[index].active = !this.todos[index].active;
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+    console.log('status change');
+    
   }
 }
